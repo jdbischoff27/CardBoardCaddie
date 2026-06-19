@@ -31,6 +31,9 @@ export function Navbar() {
             <Link href="/pricing" className="text-stone-600 hover:text-stone-900 text-sm font-medium transition-colors">
               Pricing
             </Link>
+            <Link href="/business" className="text-stone-600 hover:text-stone-900 text-sm font-medium transition-colors">
+              For Business
+            </Link>
             {session ? (
               <>
                 <Link
@@ -80,6 +83,9 @@ export function Navbar() {
           </Link>
           <Link href="/pricing" className="block text-stone-700 font-medium py-2" onClick={() => setMenuOpen(false)}>
             Pricing
+          </Link>
+          <Link href="/business" className="block text-stone-700 font-medium py-2" onClick={() => setMenuOpen(false)}>
+            For Business
           </Link>
           {session ? (
             <>
