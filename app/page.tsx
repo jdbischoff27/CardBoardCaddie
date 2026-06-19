@@ -7,7 +7,9 @@ import {
   CheckCircle2,
   ArrowRight,
   Star,
-  Leaf,
+  MapPin,
+  Building2,
+  ReceiptText,
 } from "lucide-react";
 
 const steps = [
@@ -31,22 +33,37 @@ const steps = [
   },
 ];
 
+const cities = [
+  "Salt Lake City",
+  "Ogden",
+  "Logan",
+  "Park City",
+  "Provo",
+  "Layton",
+  "Bountiful",
+  "Murray",
+  "Sandy",
+  "South Jordan",
+  "Orem",
+  "Clearfield",
+];
+
 const testimonials = [
   {
     name: "Sarah M.",
-    role: "Small business owner",
+    role: "Small business owner, Salt Lake City",
     text: "We get so many deliveries every week. Cardboard Caddie's monthly plan has been a game-changer — I never think about cardboard anymore.",
     stars: 5,
   },
   {
     name: "James T.",
-    role: "Homeowner",
+    role: "Homeowner, Ogden",
     text: "Just moved into a new place and had mountains of boxes. Booked a one-time pickup and they were gone the next day. Super easy.",
     stars: 5,
   },
   {
     name: "Linda R.",
-    role: "Office manager",
+    role: "Office manager, Sandy",
     text: "We switched from paying for a dumpster to a Cardboard Caddie subscription and cut our waste costs significantly.",
     stars: 5,
   },
@@ -58,19 +75,19 @@ export default function Home() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-stone-50 via-brand-50 to-green-50">
+      <section className="pt-28 pb-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-stone-50 via-brand-50 to-brand-100">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-green-100 text-green-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
-            <Leaf className="w-4 h-4" />
-            100% recycled. Zero landfill.
+          <div className="inline-flex items-center gap-2 bg-brand-100 text-brand-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+            <MapPin className="w-4 h-4" />
+            Proudly local &middot; Northern Utah
           </div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-stone-900 leading-tight tracking-tight text-balance mb-6">
-            Cardboard pickup,{" "}
-            <span className="text-brand-500">done right.</span>
+            Northern Utah&rsquo;s{" "}
+            <span className="text-brand-500">Cardboard Pickup</span> Service
           </h1>
           <p className="text-xl text-stone-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Schedule a one-time or recurring pickup of your cardboard boxes.
-            We haul, we recycle — you relax.
+            We come to you, collect your boxes, and recycle everything. Serving
+            Salt Lake City, Ogden, Logan, and the greater Wasatch Front.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -81,15 +98,14 @@ export default function Home() {
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
-              href="/pricing"
+              href="/business"
               className="inline-flex items-center justify-center gap-2 bg-white hover:bg-stone-50 text-stone-700 font-semibold text-lg px-8 py-4 rounded-xl border border-stone-200 transition-all hover:-translate-y-0.5"
             >
-              View Pricing
+              For Businesses
             </Link>
           </div>
-          {/* Social proof */}
           <p className="mt-8 text-sm text-stone-500">
-            ⭐⭐⭐⭐⭐ &nbsp; Trusted by <strong>1,200+</strong> homes &amp; businesses
+            &#11088;&#11088;&#11088;&#11088;&#11088; &nbsp; Trusted by <strong>1,200+</strong> homes &amp; businesses across Northern Utah
           </p>
         </div>
 
@@ -145,8 +161,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Plans preview */}
+      {/* Service area */}
       <section className="py-24 px-4 sm:px-6 lg:px-8 bg-stone-50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-stone-900 mb-4">We Serve the Wasatch Front</h2>
+            <p className="text-lg text-stone-500">
+              From Logan to Provo, we&rsquo;ve got the Front covered.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
+            {cities.map((city) => (
+              <div
+                key={city}
+                className="flex items-center gap-2 bg-white border border-stone-200 rounded-xl px-4 py-3 text-stone-700 font-medium text-sm"
+              >
+                <MapPin className="w-4 h-4 text-brand-500 flex-shrink-0" />
+                {city}
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-stone-500 text-sm">
+            Don&rsquo;t see your city?{" "}
+            <Link href="/register" className="text-brand-600 hover:underline font-medium">
+              We&rsquo;re expanding — reach out.
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      {/* B2B teaser */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-brand-800">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">Running a Business?</h2>
+            <p className="text-lg text-brand-200 max-w-2xl mx-auto">
+              Offices, warehouses, retail stores, e-commerce fulfillment — we handle ongoing
+              cardboard removal so your team doesn&rsquo;t have to.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 gap-6 mb-10 max-w-2xl mx-auto">
+            <div className="bg-brand-700/60 rounded-2xl p-6 flex items-center gap-4 border border-brand-600">
+              <div className="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Recycle className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="font-bold text-white text-lg">Weekly pickups available</div>
+                <div className="text-brand-300 text-sm">Never let cardboard pile up again</div>
+              </div>
+            </div>
+            <div className="bg-brand-700/60 rounded-2xl p-6 flex items-center gap-4 border border-brand-600">
+              <div className="w-10 h-10 bg-brand-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                <ReceiptText className="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div className="font-bold text-white text-lg">Custom invoicing</div>
+                <div className="text-brand-300 text-sm">Simple billing your accounting team will love</div>
+              </div>
+            </div>
+          </div>
+          <div className="text-center">
+            <Link
+              href="/business"
+              className="inline-flex items-center gap-2 bg-white hover:bg-brand-50 text-brand-700 font-semibold text-lg px-8 py-4 rounded-xl transition-all shadow-lg hover:-translate-y-0.5"
+            >
+              Get a Business Quote
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Plans preview */}
+      <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-4xl font-bold text-stone-900 mb-4">Simple pricing</h2>
@@ -157,9 +244,7 @@ export default function Home() {
             {/* One-time */}
             <div className="bg-white rounded-2xl border border-stone-200 p-8 hover:shadow-lg transition-shadow">
               <div className="text-sm font-semibold text-stone-500 uppercase tracking-wide mb-2">One-Time</div>
-              <div className="text-4xl font-extrabold text-stone-900 mb-1">
-                $29
-              </div>
+              <div className="text-4xl font-extrabold text-stone-900 mb-1">$29</div>
               <div className="text-stone-500 text-sm mb-6">per pickup</div>
               <ul className="space-y-3 mb-8">
                 {["Up to 20 boxes", "Next-day availability", "Recycling confirmation email"].map((f) => (
@@ -212,21 +297,21 @@ export default function Home() {
 
           <div className="text-center mt-8">
             <Link href="/pricing" className="text-brand-600 font-medium hover:underline">
-              See full pricing details →
+              See full pricing details &rarr;
             </Link>
           </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8">
+      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-stone-50">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold text-stone-900 mb-4">People love it</h2>
+            <h2 className="text-4xl font-bold text-stone-900 mb-4">Locals love it</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <div key={i} className="bg-stone-50 rounded-2xl p-6 border border-stone-100">
+              <div key={i} className="bg-white rounded-2xl p-6 border border-stone-100 shadow-sm">
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: t.stars }).map((_, j) => (
                     <Star key={j} className="w-4 h-4 fill-brand-400 text-brand-400" />
@@ -250,7 +335,7 @@ export default function Home() {
             Ready to ditch the cardboard?
           </h2>
           <p className="text-stone-400 text-lg mb-8">
-            Sign up in 2 minutes. First pickup as soon as tomorrow.
+            Sign up in 2 minutes. First pickup as soon as tomorrow across the Wasatch Front.
           </p>
           <Link
             href="/register"
@@ -266,12 +351,13 @@ export default function Home() {
       <footer className="bg-stone-900 border-t border-stone-800 py-10 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-stone-400 font-semibold">
-            Cardboard<span className="text-brand-400">Caddie</span>.com
+            Cardboard<span className="text-brand-400">Caddie</span> &mdash; Northern Utah
           </div>
           <div className="flex gap-6 text-sm text-stone-500">
             <Link href="/pricing" className="hover:text-stone-300 transition-colors">Pricing</Link>
+            <Link href="/business" className="hover:text-stone-300 transition-colors">For Business</Link>
             <Link href="/login" className="hover:text-stone-300 transition-colors">Login</Link>
-            <span>© {new Date().getFullYear()} CardboardCaddie. All rights reserved.</span>
+            <span>&copy; {new Date().getFullYear()} CardboardCaddie. All rights reserved.</span>
           </div>
         </div>
       </footer>
