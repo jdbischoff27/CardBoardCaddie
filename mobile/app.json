@@ -36,6 +36,12 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "owner": "hightower27",
+    "extra": {
+      "eas": {
+        "projectId": "cardboardcaddie"
+      }
     }
   }
 }
