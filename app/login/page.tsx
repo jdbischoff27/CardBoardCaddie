@@ -30,7 +30,7 @@ function LoginForm() {
     if (result?.ok) {
       router.push(callbackUrl);
     } else {
-      setError("Invalid email or password. Try demo@cardboardcaddie.com / demo1234");
+      setError("Invalid email or password.");
     }
   }
 
@@ -106,10 +106,6 @@ function LoginForm() {
             </button>
           </form>
 
-          <div className="mt-4 p-3 bg-stone-50 rounded-lg border border-stone-100 text-center">
-            <p className="text-xs text-stone-500 font-medium">Demo credentials</p>
-            <p className="text-xs text-stone-600 mt-0.5">demo@cardboardcaddie.com&nbsp;/&nbsp;demo1234</p>
-          </div>
         </div>
 
         <p className="text-center text-stone-600 mt-6">

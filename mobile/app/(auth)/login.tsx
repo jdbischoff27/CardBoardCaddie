@@ -50,14 +50,6 @@ export default function LoginScreen() {
           <Text style={styles.title}>Welcome back</Text>
           <Text style={styles.subtitle}>Sign in to your account</Text>
 
-          {/* Demo hint */}
-          <View style={styles.hint}>
-            <Ionicons name="information-circle-outline" size={16} color={Colors.brand[600]} />
-            <Text style={styles.hintText}>
-              Demo: <Text style={styles.hintCode}>demo@cardboardcaddie.com</Text> / <Text style={styles.hintCode}>demo1234</Text>
-            </Text>
-          </View>
-
           {/* Form */}
           <View style={styles.card}>
             <Text style={styles.label}>Email address</Text>
@@ -123,9 +115,6 @@ const styles = StyleSheet.create({
   logoText: { fontSize: 22, fontWeight: "800", color: Colors.stone[900] },
   title: { fontSize: 30, fontWeight: "800", color: Colors.stone[900], marginBottom: 4 },
   subtitle: { fontSize: 15, color: Colors.stone[500], marginBottom: 24 },
-  hint: { backgroundColor: Colors.brand[50], borderWidth: 1, borderColor: Colors.brand[200], borderRadius: 12, padding: 12, flexDirection: "row", alignItems: "flex-start", gap: 8, marginBottom: 24 },
-  hintText: { fontSize: 13, color: Colors.brand[700], flex: 1 },
-  hintCode: { fontWeight: "700" },
   card: { backgroundColor: "#fff", borderRadius: 20, padding: 20, shadowColor: "#000", shadowOpacity: 0.06, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 3 },
   label: { fontSize: 13, fontWeight: "600", color: Colors.stone[700], marginBottom: 6 },
   input: { borderWidth: 1.5, borderColor: Colors.stone[200], borderRadius: 12, paddingHorizontal: 14, paddingVertical: 13, fontSize: 15, color: Colors.stone[900], marginBottom: 4, backgroundColor: "#fff" },
